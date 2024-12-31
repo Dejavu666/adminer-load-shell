@@ -11,7 +11,7 @@
     <img src="https://img.shields.io/badge/php-5-green.svg">
 </p>
 
-1. Change the `Query SQL` value
+1. SQL command `Query SQL` value
 ```
 SELECT '<?php
 if (isset($_POST["submit"])) {
